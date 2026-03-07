@@ -2,10 +2,12 @@ FROM jrottenberg/ffmpeg:4.4-alpine
 
 COPY logo.jpg /logo.jpg
 
-
-ENV INPUT_SOURCE="https://files.catbox.moe/c591mi.mp3" #catbox.moe pe song upload karke link le aao 
-ENV TELEGRAM_URL="rtmps://dc5-1.rtmp.t.me/s/" # from Tg stream
-ENV STREAM_KEY="3431441178:faC7_q0dcIKBACguvoxtEg"# from Tg
+#catbox.moe pe song upload karke link le aao 
+ENV INPUT_SOURCE="https://files.catbox.moe/c591mi.mp3" 
+# from Tg stream
+ENV TELEGRAM_URL="rtmps://dc5-1.rtmp.t.me/s/" 
+# from Tg stream
+ENV STREAM_KEY="3431441178:faC7_q0dcIKBACguvoxtEg"
 
 ENTRYPOINT ffmpeg -re -loop 1 -i /logo.jpg -stream_loop -1 -i "$INPUT_SOURCE" \
     -vf "scale=trunc(iw/2)*2:trunc(ih/2)*2" \
