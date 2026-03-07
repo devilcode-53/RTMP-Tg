@@ -5,9 +5,9 @@ FROM jrottenberg/ffmpeg:4.4-alpine
 COPY logo.jpg /logo.jpg
 
 # Variables (You will set these in Railway Dashboard)
-ENV INPUT_SOURCE="https://your-audio-link.mp3"
-ENV TELEGRAM_URL="rtmps://dc4-1.rtmp.t.me/s/"
-ENV STREAM_KEY="your-stream-key"
+ENV INPUT_SOURCE="https://files.catbox.moe/c591mi.mp3"
+ENV TELEGRAM_URL="rtmps://dc5-1.rtmp.t.me/s/"
+ENV STREAM_KEY="3431441178:faC7_q0dcIKBACguvoxtEg"
 
 # Optimized command: 1 frame per second, low resolution, aac audio
 ENTRYPOINT ffmpeg -re -loop 1 -i /logo.jpg -stream_loop -1 -i "$INPUT_SOURCE" \
